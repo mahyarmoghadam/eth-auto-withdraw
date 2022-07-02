@@ -39,7 +39,7 @@ const main = async () => {
               const maxGasFee = BigNumber.from(gasLimit).mul(gasPrice)
 
               const tx = {
-                to: process.env.VAULT_WALLET_ADDRESS,
+                to: process.env.WALLET_ADDRESS,
                 from: depositWalletAddress,
                 nonce: await depositWallet.getTransactionCount(),
                 value: currentBalance.sub(maxGasFee),
@@ -53,7 +53,7 @@ const main = async () => {
                   console.log(
                     `Withdrew ${utils.formatEther(
                       currentBalance.sub(maxGasFee),
-                    )} ETH to VAULT ${process.env.VAULT_WALLET_ADDRESS} ✅`,
+                    )} ETH to VAULT ${process.env.WALLET_ADDRESS} ✅`,
                   )
                 },
                 (reason) => {
